@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/listTemas">
+
+    <fragment
+        android:id="@+id/listTemas"
+        android:name="com.example.recyclerview.fragments.ListTemas"
+        android:label="fragment_list_temas"
+        tools:layout="@layout/fragment_list_temas" >
+        <action
+            android:id="@+id/action_listTemas_to_details"
+            app:destination="@id/details" />
+    </fragment>
+    <fragment
+        android:id="@+id/details"
+        android:name="com.example.recyclerview.fragments.Details"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="temaClick"
+            app:argType="string" />
+    </fragment>
+</navigation>
