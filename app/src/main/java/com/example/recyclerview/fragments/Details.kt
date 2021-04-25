@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 import com.example.recyclerview.R
 
 class Details : Fragment() {
@@ -22,13 +23,14 @@ class Details : Fragment() {
             savedInstanceState: Bundle?,
     ): View? {
         v = inflater.inflate(R.layout.fragment_details, container, false)
-        //temaView.text = arguments.toString()
         temaView = v.findViewById(R.id.txtTema)
-        descripcionView = v.findViewById(R.id.txtDescription)
+        descripcionView = v.findViewById(R.id.txtDescripcion)
         return v
     }
 
     override fun onStart() {
         super.onStart()
+
+        temaView.text = DetailsArgs.fromBundle(requireArguments()).temaClick
     }
 }
