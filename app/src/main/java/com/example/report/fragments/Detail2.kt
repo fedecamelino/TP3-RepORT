@@ -1,22 +1,23 @@
-package com.example.recyclerview.fragments
+package com.example.report.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.recyclerview.R
+import com.example.report.R
 
-class Settings : Fragment() {
+class Detail2 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?,
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_detail2, container, false)
     }
 }

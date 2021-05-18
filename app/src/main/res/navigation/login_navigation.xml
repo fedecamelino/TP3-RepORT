@@ -6,7 +6,7 @@
     app:startDestination="@id/login">
     <fragment
         android:id="@+id/login"
-        android:name="com.example.recyclerview.fragments.Login"
+        android:name="com.example.report.fragments.Login"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -15,11 +15,11 @@
     </fragment>
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.recyclerview.activities.MainActivity"
+        android:name="com.example.report.activities.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" >
         <argument
-            android:name="nombreUsuario"
+            android:name="IdUsuario"
             app:argType="string" />
     </activity>
 </navigation>

@@ -6,7 +6,7 @@
             android:title="@string/icon_home" />
 
         <item
-            android:id="@+id/settings"
+            android:id="@+id/profile"
             android:icon="@drawable/outline_manage_accounts_24"
             android:title="@string/icon_settings" />
 </menu>

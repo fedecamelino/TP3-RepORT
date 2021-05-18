@@ -1,4 +1,4 @@
-package com.example.recyclerview.fragments
+package com.example.report.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.navigation.fragment.navArgs
-import com.example.recyclerview.R
+import com.example.report.R
 
-class Details : Fragment() {
+class Detail1 : Fragment() {
+
     lateinit var temaView : TextView
     lateinit var descripcionView : TextView
     lateinit var v : View
@@ -22,7 +22,7 @@ class Details : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?,
     ): View? {
-        v = inflater.inflate(R.layout.fragment_details, container, false)
+        v = inflater.inflate(R.layout.fragment_detail1, container, false)
         temaView = v.findViewById(R.id.txtTema)
         descripcionView = v.findViewById(R.id.txtDescripcion)
         return v
@@ -31,6 +31,6 @@ class Details : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        temaView.text = DetailsArgs.fromBundle(requireArguments()).temaClick
+        //temaView.text = DetailsArgs.fromBundle(requireArguments()).temaClick
     }
 }

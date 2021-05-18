@@ -10,6 +10,7 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:background="#C5C0C0"
         app:itemHorizontalTranslationEnabled="true"
         app:labelVisibilityMode="auto"
         app:layout_constraintBottom_toBottomOf="parent"

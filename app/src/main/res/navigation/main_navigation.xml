@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listTemas"
-        android:name="com.example.recyclerview.fragments.ListTemas"
+        android:name="com.example.report.fragments.ListTemas"
         android:label="fragment_list_temas"
         tools:layout="@layout/fragment_list_temas" >
         <action
@@ -16,16 +16,22 @@
     </fragment>
     <fragment
         android:id="@+id/details"
-        android:name="com.example.recyclerview.fragments.Details"
+        android:name="com.example.report.fragments.Details"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
-        <argument
-            android:name="temaClick"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_details" />
     <fragment
-        android:id="@+id/settings"
-        android:name="com.example.recyclerview.fragments.Settings"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/profile"
+        android:name="com.example.report.fragments.Profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detail1"
+        android:name="com.example.report.fragments.Detail1"
+        android:label="fragment_detail1"
+        tools:layout="@layout/fragment_detail1" />
+    <fragment
+        android:id="@+id/detail2"
+        android:name="com.example.report.fragments.Detail2"
+        android:label="fragment_detail2"
+        tools:layout="@layout/fragment_detail2" />
 </navigation>

@@ -1,18 +1,16 @@
-package com.example.recyclerview.adapters
+package com.example.report.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.recyclerview.R
-import com.example.recyclerview.entities.Tema
+import com.example.report.R
+import com.example.report.entities.Tema
 
 class TemaListAdapter(
     private var temasList: MutableList<Tema>,
