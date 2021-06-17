@@ -14,10 +14,11 @@
             android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="236dp"
+            android:layout_marginBottom="276dp"
             android:text="@string/button_ingresar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
@@ -37,7 +38,7 @@
             android:id="@+id/passwordText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="88dp"
             android:ems="10"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -45,5 +46,34 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userText" />
+
+        <TextView
+            android:id="@+id/userView"
+            android:layout_width="83dp"
+            android:layout_height="27dp"
+            android:text="Usuario"
+            android:textAllCaps="false"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/userText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.304"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.927" />
+
+        <TextView
+            android:id="@+id/passwordView"
+            android:layout_width="112dp"
+            android:layout_height="29dp"
+            android:text="Contraseña"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/passwordText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.334"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userText"
+            app:layout_constraintVertical_bias="0.826" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

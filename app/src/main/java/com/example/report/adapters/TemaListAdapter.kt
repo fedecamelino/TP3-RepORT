@@ -19,7 +19,6 @@ class TemaListAdapter(
 ) : RecyclerView.Adapter<TemaListAdapter.TemaHolder>() {
 
     companion object {
-        private val TAG = "TemaListAdapter"
         private val INGRESO = "https://artes.unc.edu.ar/wp-content/blogs.dir/2/files/sites/2/Ingres2020_SliderWEB.png"
         private val MATERIA = "https://destinonegocio.com/wp-content/uploads/2018/11/14-sistema-informatico.jpg"
         private val ADMINISTRATIVO = "https://definicion.xyz/wp-content/uploads/2020/11/principios-y-elementos-de-la-administracion-700x438.jpg"
@@ -61,12 +60,12 @@ class TemaListAdapter(
         private val view: View = v
 
         fun setName(name: String) {
-            val txt: TextView = view.findViewById(R.id.txtNameItem)
+            val txt: TextView = view.findViewById(R.id.txtComentario)
             txt.text = name
         }
 
         fun getCardLayout (): CardView {
-            return view.findViewById(R.id.cardItem)
+            return view.findViewById(R.id.cardComment)
         }
 
         fun getImageView () : ImageView {

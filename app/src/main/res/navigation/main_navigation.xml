@@ -13,12 +13,19 @@
         <action
             android:id="@+id/action_listTemas_to_details"
             app:destination="@id/details" />
+        <action
+            android:id="@+id/action_listTemas_to_newTema"
+            app:destination="@id/newTema" />
     </fragment>
     <fragment
         android:id="@+id/details"
         android:name="com.example.report.fragments.Details"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="tema"
+            app:argType="com.example.report.entities.Tema" />
+    </fragment>
     <fragment
         android:id="@+id/profile"
         android:name="com.example.report.fragments.Profile"
@@ -34,4 +41,16 @@
         android:name="com.example.report.fragments.Detail2"
         android:label="fragment_detail2"
         tools:layout="@layout/fragment_detail2" />
+    <fragment
+        android:id="@+id/newTema"
+        android:name="com.example.report.fragments.NewTema"
+        android:label="fragment_new_tema"
+        tools:layout="@layout/fragment_new_tema" >
+        <action
+            android:id="@+id/action_newTema_to_listTemas2"
+            app:destination="@id/listTemas" />
+        <argument
+            android:name="nombreUsuario"
+            app:argType="string" />
+    </fragment>
 </navigation>

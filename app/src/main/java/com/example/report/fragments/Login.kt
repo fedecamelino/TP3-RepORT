@@ -13,11 +13,14 @@ import com.example.report.R
 import com.example.report.viewmodels.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 
+@Suppress("DEPRECATION")
 class Login : Fragment() {
     lateinit var v : View
     lateinit var btnInicioSesion : Button
     lateinit var userView : TextView
     lateinit var passwordView : TextView
+    lateinit var userViewTitle : TextView
+    lateinit var passwordViewTitle : TextView
     private lateinit var viewModel: LoginViewModel
     var outputString : String = ""
 
@@ -40,6 +43,8 @@ class Login : Fragment() {
         btnInicioSesion = v.findViewById(R.id.btnLogin)
         userView = v.findViewById(R.id.userText)
         passwordView = v.findViewById(R.id.passwordText)
+        userViewTitle = v.findViewById(R.id.userView)
+        passwordViewTitle = v.findViewById(R.id.passwordView)
         return v
     }
 
@@ -64,7 +69,7 @@ class Login : Fragment() {
             Snackbar.make(v, outputString, Snackbar.LENGTH_SHORT).show()
 
             if (outputString == Constants.OUTPUT_0) {
-                val action = LoginDirections.actionLoginToMainActivity("hola")//ID de Usuario
+                val action = LoginDirections.actionLoginToMainActivity(viewModel.usuarioLogueado)
                 v.findNavController().navigate(action)
             }
         }

@@ -1,11 +1,13 @@
 package com.example.report.viewmodels
 
+import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import com.example.report.entities.Usuario
 
 class LoginViewModel : ViewModel() {
     private var usuarios : MutableList<Usuario> = mutableListOf()
+    var usuarioLogueado : Usuario? = null
 
     fun initUsers () {
         usuarios.add(Usuario("roman@gmail.com", "gallardoHijo", "Juan Roman", "Riquelme"))
@@ -15,9 +17,9 @@ class LoginViewModel : ViewModel() {
     }
 
     fun logon (userView: TextView, passwordView: TextView) : Int {
-        var user : Usuario? = null
         var flagUserExist : Boolean = false
         var i : Int = 0
+        lateinit var user : Usuario
 
         var output : Int = 3
         //Por defecto devuelve 3 -> Campo/s vacio/s
@@ -36,15 +38,19 @@ class LoginViewModel : ViewModel() {
 
             if (!flagUserExist) output = 2
             else {
-                if (user != null) {
-                    if (userView.text.toString() == user.usuario && passwordView.text.toString() == user.contrasenia) {
-                        output = 0
-                    } else output = 1
+                if (userView.text.toString() == user.usuario && passwordView.text.toString() == user.contrasenia) {
+                    setUserLogin(user)
+                    output = 0
                 }
+                else output = 1
             }
         }
 
         return output
+    }
+
+    private fun setUserLogin(user: Usuario) {
+        usuarioLogueado = user
     }
 
 

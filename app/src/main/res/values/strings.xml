@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">RepORT</string>
-    <string name="username">User</string>
-    <string name="password">Password</string>
-    <string name="button_ingresar">Login</string>
+    <string name="username">Ingrese usuario...</string>
+    <string name="password">Ingrese contraseña...</string>
+    <string name="button_ingresar">Ingresar</string>
     <string name="icon_home">Home</string>
     <string name="icon_settings">Settings</string>
     <string name="settings_navbar">Navigation Bar</string>
     <string name="settings_navbar_color">Color</string>
+    <string name="new_theme">Nuevo Tema</string>
+    <string name="name_theme">Titulo</string>
+    <string name="description_theme">Descripción</string>
+    <string name="agregar_theme">Crear Tema</string>
+    <string name="cancelar_theme">Cancelar</string>
+    <string name="tipo_theme">Tipo</string>
     <string-array name="color_values">
         <item>Gray</item>
         <item>Blue</item>

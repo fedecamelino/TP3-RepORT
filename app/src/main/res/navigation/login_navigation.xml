@@ -17,9 +17,10 @@
         android:id="@+id/mainActivity"
         android:name="com.example.report.activities.MainActivity"
         android:label="activity_main"
-        tools:layout="@layout/activity_main" >
+        tools:layout="@layout/activity_main">
         <argument
-            android:name="IdUsuario"
-            app:argType="string" />
+            android:name="usuario"
+            app:argType="com.example.report.entities.Usuario"
+            app:nullable="true" />
     </activity>
 </navigation>

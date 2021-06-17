@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,30 +17,31 @@
 
         <TextView
             android:id="@+id/txtComentario"
-            android:layout_width="179dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="24dp"
+            android:layout_width="381dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Tema"
+            android:text="Comentario"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.506" />
+            app:layout_constraintVertical_bias="0.098" />
 
-        <ImageView
-            android:id="@+id/imgItem"
-            android:layout_width="98dp"
-            android:layout_height="59dp"
-            android:layout_marginEnd="32dp"
+        <TextView
+            android:id="@+id/txtUserComentario"
+            android:layout_width="171dp"
+            android:layout_height="20dp"
+            android:text="Usuario Creador"
+            android:textAlignment="center"
+            android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.842"
-            app:layout_constraintStart_toEndOf="@+id/txtComentario"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars[1]" />
+            app:layout_constraintVertical_bias="0.978" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
