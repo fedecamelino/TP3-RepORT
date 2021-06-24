@@ -75,5 +75,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userText"
             app:layout_constraintVertical_bias="0.826" />
+
+        <TextView
+            android:id="@+id/txtRegistrate"
+            android:layout_width="182dp"
+            android:layout_height="33dp"
+            android:text="@string/registrate"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.177"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+        <Button
+            android:id="@+id/buttonRegistrar"
+            android:layout_width="101dp"
+            android:layout_height="33dp"
+            android:text="@string/button_register"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

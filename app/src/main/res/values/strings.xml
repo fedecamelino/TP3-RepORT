@@ -13,6 +13,10 @@
     <string name="agregar_theme">Crear Tema</string>
     <string name="cancelar_theme">Cancelar</string>
     <string name="tipo_theme">Tipo</string>
+    <string name="new_comment">Nuevo Comentario</string>
+    <string name="submit_comment">Comentar</string>
+    <string name="registrate">¿No tenes una cuenta?</string>
+    <string name="button_register">Registrate!</string>
     <string-array name="color_values">
         <item>Gray</item>
         <item>Blue</item>

@@ -13,4 +13,11 @@ class Comentario (descripcion: String, idtema: Int, usuario: String) {
         this.description = descripcion
         this.userCreator = usuario
     }
+
+    class Constants {
+        companion object {
+            val OUTPUT_CREADO = "Nuevo comentario realizado"
+            val OUTPUT_ERROR = "Comentario vacio"
+        }
+    }
 }

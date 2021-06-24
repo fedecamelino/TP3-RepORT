@@ -2,6 +2,7 @@ package com.example.report.viewmodels
 
 import android.content.ContentValues
 import android.util.Log
+import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.report.entities.Comentario
@@ -38,5 +39,16 @@ class ComentariosViewModel: ViewModel() {
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents: ", exception)
             }
+    }
+
+    fun validarNuevoComentario(comentario : TextView) : Boolean {
+        return comentario.text.toString().length > 0
+    }
+
+    fun actualizarComentarios(nuevoComentario: Comentario) {
+        Log.d("SIZE Comentarios = ", comentarios.size.toString())
+        comentarios.add(nuevoComentario)
+        db.collection("comentarios").add(nuevoComentario)
+        comentariosLive.value = comentarios
     }
 }

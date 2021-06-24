@@ -1,6 +1,7 @@
 package com.example.report.viewmodels
 
 import android.util.Log
+import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.report.entities.Comentario
@@ -16,6 +17,8 @@ class DetailsViewModel: ViewModel() {
     var posicionTema: Int = 0
     var comentarios: MutableList<Comentario> = ArrayList<Comentario>()
     var comentariosLive = MutableLiveData<MutableList<Comentario>>()
+
+
 
     /*fun setTema(position: Int) {
         val path = position.toString()

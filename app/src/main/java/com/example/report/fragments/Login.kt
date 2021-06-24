@@ -21,6 +21,8 @@ class Login : Fragment() {
     lateinit var passwordView : TextView
     lateinit var userViewTitle : TextView
     lateinit var passwordViewTitle : TextView
+    lateinit var registerView : TextView
+    lateinit var btnRegister : Button
     private lateinit var viewModel: LoginViewModel
     var outputString : String = ""
 
@@ -45,6 +47,8 @@ class Login : Fragment() {
         passwordView = v.findViewById(R.id.passwordText)
         userViewTitle = v.findViewById(R.id.userView)
         passwordViewTitle = v.findViewById(R.id.passwordView)
+        registerView = v.findViewById(R.id.txtRegistrate)
+        btnRegister = v.findViewById(R.id.buttonRegistrar)
         return v
     }
 
@@ -66,12 +70,19 @@ class Login : Fragment() {
                 else -> Constants.OUTPUT_3
             }
 
+            userView.setText("")
+            passwordView.setText("")
+
             Snackbar.make(v, outputString, Snackbar.LENGTH_SHORT).show()
 
             if (outputString == Constants.OUTPUT_0) {
                 val action = LoginDirections.actionLoginToMainActivity(viewModel.usuarioLogueado)
                 v.findNavController().navigate(action)
             }
+        }
+
+        btnRegister.setOnClickListener {
+
         }
     }
 }
