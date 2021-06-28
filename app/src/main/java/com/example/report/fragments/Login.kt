@@ -1,6 +1,7 @@
 package com.example.report.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,10 @@ import androidx.navigation.findNavController
 import com.example.report.R
 import com.example.report.viewmodels.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Suppress("DEPRECATION")
 class Login : Fragment() {
@@ -26,17 +31,15 @@ class Login : Fragment() {
     private lateinit var viewModel: LoginViewModel
     var outputString : String = ""
 
+    private lateinit var auth: FirebaseAuth
+    /*lateinit var user : FirebaseUser*/
+
     class Constants {
         companion object {
             val OUTPUT_0 = "Bienvenido"
             val OUTPUT_1 = "Usuario y/o contraseña inválida"
-            val OUTPUT_2 = "El usuario no existe"
-            val OUTPUT_3 = "Complete ambos campos"
+            val OUTPUT_2 = "Complete ambos campos"
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,6 +52,9 @@ class Login : Fragment() {
         passwordViewTitle = v.findViewById(R.id.passwordView)
         registerView = v.findViewById(R.id.txtRegistrate)
         btnRegister = v.findViewById(R.id.buttonRegistrar)
+
+        auth = Firebase.auth
+
         return v
     }
 
@@ -60,14 +66,39 @@ class Login : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        viewModel.initUsers()
-
         btnInicioSesion.setOnClickListener {
-            outputString = when (viewModel.logon(userView, passwordView)) {
+            /*outputString = when (viewModel.logon(userView, passwordView)) {
                 0 -> Constants.OUTPUT_0
                 1 -> Constants.OUTPUT_1
                 2 -> Constants.OUTPUT_2
                 else -> Constants.OUTPUT_3
+            }*/
+
+            if (viewModel.verificarCamposCompletos(userView, passwordView)) {
+                outputString = Constants.OUTPUT_2
+            }
+            else {
+                val email = userView.text.toString()
+                val password = passwordView.text.toString()
+
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(requireActivity()) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success
+                            Log.d("SIGN IN: ", "Success")
+                            val uid = auth.currentUser?.uid
+                            Log.d("UID = ", uid.toString())
+                            if (uid != null) {
+                                viewModel.getUser(uid)
+                            }
+                            outputString = Constants.OUTPUT_0
+                        } else {
+                            // If sign in fails
+                            Log.d("SIGN IN: ", "Failure")
+                            outputString = Constants.OUTPUT_1
+                        }
+                    }
+
             }
 
             userView.setText("")
@@ -75,14 +106,14 @@ class Login : Fragment() {
 
             Snackbar.make(v, outputString, Snackbar.LENGTH_SHORT).show()
 
-            if (outputString == Constants.OUTPUT_0) {
+            /*if (outputString == Constants.OUTPUT_0) {
                 val action = LoginDirections.actionLoginToMainActivity(viewModel.usuarioLogueado)
                 v.findNavController().navigate(action)
-            }
+            }*/
         }
 
-        btnRegister.setOnClickListener {
+        /*btnRegister.setOnClickListener {
 
-        }
+        }*/
     }
 }

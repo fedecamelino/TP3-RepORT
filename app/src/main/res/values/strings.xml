@@ -17,6 +17,16 @@
     <string name="submit_comment">Comentar</string>
     <string name="registrate">¿No tenes una cuenta?</string>
     <string name="button_register">Registrate!</string>
+    <string name="titulo_registro">Registrate</string>
+    <string name="nombreTxt">Nombre</string>
+    <string name="nombreInputTxt">Ingrese su nombre</string>
+    <string name="apellidoTxt">Apellido</string>
+    <string name="apellidoInputTxt">Ingrese su apellido</string>
+    <string name="emailTxt">E-mail / Usuario</string>
+    <string name="emailInputTxt">Ingrese su e-mail</string>
+    <string name="passwordTxt">Contraseña</string>
+    <string name="passwordInputTxt1">Ingrese su contraseña</string>
+    <string name="passwordInputTxt2">Ingrese nuevamente su contraseña</string>
     <string-array name="color_values">
         <item>Gray</item>
         <item>Blue</item>

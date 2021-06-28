@@ -1,14 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.Register">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/nombreTxt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginBottom="80dp"
+        android:text="@string/nombreTxt"
+        app:layout_constraintBottom_toTopOf="@+id/apellidoTxt"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRegistro"
+        app:layout_constraintStart_toStartOf="@+id/nombreInputTxt"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/nombreInputTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="80dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/nombreInputTxt"
+        app:layout_constraintBottom_toTopOf="@+id/apellidoInputTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloRegistroTxt" />
+
+    <EditText
+        android:id="@+id/passwordInputTxt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/passwordInputTxt1"
+        app:layout_constraintBottom_toTopOf="@+id/passwordInputTxt2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailInputTxt" />
+
+    <EditText
+        android:id="@+id/passwordInputTxt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="21dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/passwordInputTxt2"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegistro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputTxt1" />
+
+    <EditText
+        android:id="@+id/apellidoInputTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="89dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/apellidoInputTxt"
+        app:layout_constraintBottom_toTopOf="@+id/emailInputTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreInputTxt" />
+
+    <EditText
+        android:id="@+id/emailInputTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="87dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/emailInputTxt"
+        app:layout_constraintBottom_toTopOf="@+id/passwordInputTxt1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apellidoInputTxt" />
+
+    <TextView
+        android:id="@+id/apellidoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="112dp"
+        android:text="@string/apellidoTxt"
+        app:layout_constraintBottom_toTopOf="@+id/emailTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreTxt" />
+
+    <TextView
+        android:id="@+id/emailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="111dp"
+        android:text="@string/emailTxt"
+        app:layout_constraintBottom_toTopOf="@+id/passwordTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apellidoTxt" />
+
+    <TextView
+        android:id="@+id/passwordTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="248dp"
+        android:text="@string/passwordTxt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailTxt" />
+
+    <Button
+        android:id="@+id/buttonRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/button_register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/passwordInputTxt2"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputTxt2" />
+
+    <TextView
+        android:id="@+id/tituloRegistroTxt"
+        android:layout_width="179dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginBottom="66dp"
+        android:text="@string/titulo_registro"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/nombreInputTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

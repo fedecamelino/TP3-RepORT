@@ -4,12 +4,18 @@ import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import com.example.report.entities.Usuario
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
+
 
 class LoginViewModel : ViewModel() {
-    private var usuarios : MutableList<Usuario> = mutableListOf()
-    var usuarioLogueado : Usuario? = null
 
-    fun initUsers () {
+    /*private var usuarios : MutableList<Usuario> = mutableListOf()
+    var usuarioLogueado : Usuario? = null*/
+    val db = Firebase.firestore
+
+    /*fun initUsers () {
         usuarios.add(Usuario("roman@gmail.com", "gallardoHijo", "Juan Roman", "Riquelme"))
         usuarios.add(Usuario("patron2@consejo.com", "ChauPol2020", "Jorge", "Bermudez"))
         usuarios.add(Usuario("miguelito5@boca.com", "unpoquitoma", "Miguel", "Russo"))
@@ -47,11 +53,30 @@ class LoginViewModel : ViewModel() {
         }
 
         return output
+    }*/
+
+    fun getUser(uid: String) {
+
+        val userRef = db.collection("users").document(uid)
+        var user: Usuario
+
+        userRef
+            .get()
+            .addOnSuccessListener { dataSnapshot ->
+                if (dataSnapshot != null) {
+                    user = dataSnapshot.toObject<Usuario>()!!
+                    Log.d("USUARIO LOGUEADO = ", user.username)
+                } else {
+                    Log.d("Test", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("Test", "get failed with ", exception)
+            }
     }
 
-    private fun setUserLogin(user: Usuario) {
-        usuarioLogueado = user
+    fun verificarCamposCompletos(userView: TextView, passwordView: TextView): Boolean {
+        return (userView.length() == 0 || passwordView.length() == 0)
     }
-
 
 }

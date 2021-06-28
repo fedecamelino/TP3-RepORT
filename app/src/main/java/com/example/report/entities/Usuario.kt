@@ -4,16 +4,16 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Usuario (username: String, password: String, name: String, lastName: String) : Parcelable {
-    var usuario : String
-    var contrasenia : String
+    var username : String
+    var password : String
     var nombre: String
     var apellido: String
 
     constructor() : this("", "", "", "")
 
     init {
-        this.usuario = username
-        this.contrasenia = password
+        this.username = username
+        this.password = password
         this.nombre = name
         this.apellido = lastName
     }
@@ -21,8 +21,8 @@ class Usuario (username: String, password: String, name: String, lastName: Strin
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(usuario)
-        writeString(contrasenia)
+        writeString(username)
+        writeString(password)
         writeString(nombre)
         writeString(apellido)
     }
