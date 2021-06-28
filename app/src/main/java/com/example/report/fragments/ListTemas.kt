@@ -63,7 +63,7 @@ class ListTemas : Fragment() {
         })
 
         btnFloating.setOnClickListener {
-            val action = ListTemasDirections.actionListTemasToNewTema("patron2@consejo.com")
+            val action = ListTemasDirections.actionListTemasToNewTema()
             v.findNavController().navigate(action)
         }
     }

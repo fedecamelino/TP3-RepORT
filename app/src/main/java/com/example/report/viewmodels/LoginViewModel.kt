@@ -11,8 +11,7 @@ import com.google.firebase.ktx.Firebase
 
 class LoginViewModel : ViewModel() {
 
-    /*private var usuarios : MutableList<Usuario> = mutableListOf()
-    var usuarioLogueado : Usuario? = null*/
+    lateinit var usuarioLogueado : Usuario
     val db = Firebase.firestore
 
     /*fun initUsers () {
@@ -65,7 +64,8 @@ class LoginViewModel : ViewModel() {
             .addOnSuccessListener { dataSnapshot ->
                 if (dataSnapshot != null) {
                     user = dataSnapshot.toObject<Usuario>()!!
-                    Log.d("USUARIO LOGUEADO = ", user.username)
+                    usuarioLogueado = user
+                    Log.d("USUARIO LOGUEADO = ", usuarioLogueado.username)
                 } else {
                     Log.d("Test", "No such document")
                 }

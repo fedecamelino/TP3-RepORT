@@ -22,6 +22,7 @@ class TemaListAdapter(
         private val INGRESO = "https://artes.unc.edu.ar/wp-content/blogs.dir/2/files/sites/2/Ingres2020_SliderWEB.png"
         private val MATERIA = "https://destinonegocio.com/wp-content/uploads/2018/11/14-sistema-informatico.jpg"
         private val ADMINISTRATIVO = "https://definicion.xyz/wp-content/uploads/2020/11/principios-y-elementos-de-la-administracion-700x438.jpg"
+        private val EXPERIENCIA = "https://i.pinimg.com/236x/f6/20/8a/f6208af20256c011ef2f790d085e97d5.jpg"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TemaHolder {
@@ -47,6 +48,7 @@ class TemaListAdapter(
 
         val url = if (temasList[position].type == Tema.Constants.ingreso) INGRESO
         else if (temasList[position].type == Tema.Constants.materia) MATERIA
+        else if (temasList[position].type == Tema.Constants.experiencia) EXPERIENCIA
         else ADMINISTRATIVO
 
             Glide

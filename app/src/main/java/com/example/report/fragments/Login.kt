@@ -1,5 +1,7 @@
 package com.example.report.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,7 +16,6 @@ import com.example.report.R
 import com.example.report.viewmodels.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -30,9 +31,7 @@ class Login : Fragment() {
     lateinit var btnRegister : Button
     private lateinit var viewModel: LoginViewModel
     var outputString : String = ""
-
     private lateinit var auth: FirebaseAuth
-    /*lateinit var user : FirebaseUser*/
 
     class Constants {
         companion object {
@@ -48,8 +47,8 @@ class Login : Fragment() {
         btnInicioSesion = v.findViewById(R.id.btnLogin)
         userView = v.findViewById(R.id.userText)
         passwordView = v.findViewById(R.id.passwordText)
-        userViewTitle = v.findViewById(R.id.userView)
-        passwordViewTitle = v.findViewById(R.id.passwordView)
+        userViewTitle = v.findViewById(R.id.userText)
+        passwordViewTitle = v.findViewById(R.id.passwordText)
         registerView = v.findViewById(R.id.txtRegistrate)
         btnRegister = v.findViewById(R.id.buttonRegistrar)
 
@@ -66,13 +65,10 @@ class Login : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        val sharedPref: SharedPreferences = requireContext().getSharedPreferences("My Preferences", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
         btnInicioSesion.setOnClickListener {
-            /*outputString = when (viewModel.logon(userView, passwordView)) {
-                0 -> Constants.OUTPUT_0
-                1 -> Constants.OUTPUT_1
-                2 -> Constants.OUTPUT_2
-                else -> Constants.OUTPUT_3
-            }*/
 
             if (viewModel.verificarCamposCompletos(userView, passwordView)) {
                 outputString = Constants.OUTPUT_2
@@ -88,10 +84,14 @@ class Login : Fragment() {
                             Log.d("SIGN IN: ", "Success")
                             val uid = auth.currentUser?.uid
                             Log.d("UID = ", uid.toString())
+                            editor.putString("USERNAME", email)
+                            editor.apply()
                             if (uid != null) {
                                 viewModel.getUser(uid)
                             }
                             outputString = Constants.OUTPUT_0
+                            val action = LoginDirections.actionLoginToMainActivity()
+                            v.findNavController().navigate(action)
                         } else {
                             // If sign in fails
                             Log.d("SIGN IN: ", "Failure")
@@ -101,15 +101,16 @@ class Login : Fragment() {
 
             }
 
-            userView.setText("")
-            passwordView.setText("")
+            /*if (outputString == Constants.OUTPUT_0) {
+                Log.d("LOGIN -> ", "LIST TEMAS")
+                val action = LoginDirections.actionLoginToMainActivity()
+                v.findNavController().navigate(action)
+            }*/
 
             Snackbar.make(v, outputString, Snackbar.LENGTH_SHORT).show()
 
-            /*if (outputString == Constants.OUTPUT_0) {
-                val action = LoginDirections.actionLoginToMainActivity(viewModel.usuarioLogueado)
-                v.findNavController().navigate(action)
-            }*/
+            userView.setText("")
+            passwordView.setText("")
         }
 
         /*btnRegister.setOnClickListener {

@@ -1,6 +1,7 @@
 package com.example.report.fragments
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,8 +12,6 @@ import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.report.R
-import com.example.report.activities.MainActivity
-import com.example.report.activities.MainActivityArgs
 import com.example.report.entities.Tema
 import com.example.report.viewmodels.ListTemasViewModel
 import com.example.report.viewmodels.LoginViewModel
@@ -78,6 +77,7 @@ class NewTema : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        val sharedPref: SharedPreferences = requireContext().getSharedPreferences("My Preferences", Context.MODE_PRIVATE)
 
         definirSpinner(spinnerView, listaTiposTemas, requireContext())
         spinnerView.setSelection(0, false)
@@ -108,7 +108,9 @@ class NewTema : Fragment() {
                     ingreseTituloView.text.toString(),
                     spinnerText,
                     ingreseDescripcionView.text.toString(),
-                    NewTemaArgs.fromBundle(requireArguments()).nombreUsuario)
+                    sharedPref.getString("USERNAME", "default")!!
+                )
+
                 Snackbar.make(v, Constants.OUTPUT_CREADO, Snackbar.LENGTH_LONG).show()
                 temasViewModel.actualizarTemas(nuevoTema)
 

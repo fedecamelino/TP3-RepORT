@@ -49,8 +49,5 @@
         <action
             android:id="@+id/action_newTema_to_listTemas2"
             app:destination="@id/listTemas" />
-        <argument
-            android:name="nombreUsuario"
-            app:argType="string" />
     </fragment>
 </navigation>

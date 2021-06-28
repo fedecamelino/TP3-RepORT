@@ -1,5 +1,7 @@
 package com.example.report.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -56,27 +58,23 @@ class Detail1 : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        val sharedPref: SharedPreferences = requireContext().getSharedPreferences("My Preferences", Context.MODE_PRIVATE)
+
         temaView.text = viewModelDetails.temaActual.name
         userView.text = viewModelDetails.temaActual.userCreator
         descripcionView.text = viewModelDetails.temaActual.description
-
-
-        Log.d("ROMPE", "ACAAAAAAAAAAAAAAAAAA")
 
         buttonView.setOnClickListener {
             if (viewModelComentarios.validarNuevoComentario(inputComentarioView)) {
                 val nuevoComentario = Comentario(
                     inputComentarioView.text.toString(),
                     viewModelDetails.posicionTema,
-                    "miguelito5@boca.com"
+                    sharedPref.getString("USERNAME", "USERNAME")!!
                 )
 
                 Snackbar.make(v, Comentario.Constants.OUTPUT_CREADO, Snackbar.LENGTH_LONG).show()
                 viewModelComentarios.actualizarComentarios(nuevoComentario)
                 inputComentarioView.setText("")
-
-                /*val action = Detail1Directions.actionDetail1ToDetail22()
-                v.findNavController().navigate(action)*/
             }
             else {
                 Snackbar.make(v, Comentario.Constants.OUTPUT_ERROR, Snackbar.LENGTH_SHORT).show()

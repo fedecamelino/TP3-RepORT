@@ -73,7 +73,6 @@
         android:gravity="start|top"
         android:hint="Ingrese la descripción ..."
         android:inputType="textMultiLine"
-        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,10 +100,10 @@
         android:src="@android:drawable/ic_menu_close_clear_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <Spinner
         android:id="@+id/tipoTemaSpinner"

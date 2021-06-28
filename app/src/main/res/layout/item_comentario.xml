@@ -17,31 +17,38 @@
 
         <TextView
             android:id="@+id/txtComentario"
-            android:layout_width="381dp"
-            android:layout_height="78dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="403dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="5dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:text="Comentario"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="italic"
+            android:textAlignment="textStart"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.098" />
+            app:layout_constraintTop_toBottomOf="@+id/txtUserComentario" />
 
         <TextView
             android:id="@+id/txtUserComentario"
-            android:layout_width="171dp"
-            android:layout_height="20dp"
+            android:layout_width="335dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="150dp"
             android:text="Usuario Creador"
-            android:textAlignment="center"
-            android:textSize="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAlignment="textStart"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtComentario"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.978" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
