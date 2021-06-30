@@ -70,7 +70,7 @@ class Login : Fragment() {
 
         btnInicioSesion.setOnClickListener {
 
-            if (viewModel.verificarCamposCompletos(userView, passwordView)) {
+            if (viewModel.verificarCamposIncompletos(userView, passwordView)) {
                 Snackbar.make(v, Constants.OUTPUT_2, Snackbar.LENGTH_SHORT).show()
             }
             else {

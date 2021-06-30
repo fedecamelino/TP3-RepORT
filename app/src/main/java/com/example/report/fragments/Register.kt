@@ -78,6 +78,8 @@ class Register : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        viewModelRegistro.getUsuarios()
+
         btnRegistrar.setOnClickListener {
 
             if (viewModelRegistro.verificarCamposCompletos(

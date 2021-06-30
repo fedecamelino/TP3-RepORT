@@ -29,7 +29,6 @@ class RegisterViewModel : ViewModel() {
 
     fun verificarUsuarioUnico (emailView: TextView) : Boolean {
         val email = emailView.text.toString()
-        var user: Usuario
         var flagUserUnique: Boolean = true
 
         for (usuario in usuarios) {

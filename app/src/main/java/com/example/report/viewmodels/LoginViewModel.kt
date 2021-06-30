@@ -11,7 +11,7 @@ import com.google.firebase.ktx.Firebase
 
 class LoginViewModel : ViewModel() {
 
-    fun verificarCamposCompletos(userView: TextView, passwordView: TextView): Boolean {
+    fun verificarCamposIncompletos(userView: TextView, passwordView: TextView): Boolean {
         return (userView.length() == 0 || passwordView.length() == 0)
     }
 }
