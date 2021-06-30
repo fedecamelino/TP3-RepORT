@@ -16,8 +16,9 @@
 
         <TextView
             android:id="@+id/txtComentario"
-            android:layout_width="179dp"
-            android:layout_height="35dp"
+            android:layout_width="253dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="70dp"
             android:layout_marginBottom="39dp"
@@ -29,7 +30,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgItem"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView

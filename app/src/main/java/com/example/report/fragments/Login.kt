@@ -1,5 +1,6 @@
 package com.example.report.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -30,17 +31,16 @@ class Login : Fragment() {
     lateinit var registerView : TextView
     lateinit var btnRegister : Button
     private lateinit var viewModel: LoginViewModel
-    var outputString : String = ""
     private lateinit var auth: FirebaseAuth
 
     class Constants {
         companion object {
-            val OUTPUT_0 = "Bienvenido"
             val OUTPUT_1 = "Usuario y/o contraseña inválida"
             val OUTPUT_2 = "Complete ambos campos"
         }
     }
 
+    @SuppressLint("CutPasteId")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         v = inflater.inflate(R.layout.fragment_login, container, false)
 
@@ -71,7 +71,7 @@ class Login : Fragment() {
         btnInicioSesion.setOnClickListener {
 
             if (viewModel.verificarCamposCompletos(userView, passwordView)) {
-                outputString = Constants.OUTPUT_2
+                Snackbar.make(v, Constants.OUTPUT_2, Snackbar.LENGTH_SHORT).show()
             }
             else {
                 val email = userView.text.toString()
@@ -87,34 +87,27 @@ class Login : Fragment() {
                             editor.putString("USERNAME", email)
                             editor.apply()
                             if (uid != null) {
-                                viewModel.getUser(uid)
+                                viewModel.setUser(uid)
                             }
-                            outputString = Constants.OUTPUT_0
+
                             val action = LoginDirections.actionLoginToMainActivity()
                             v.findNavController().navigate(action)
+
                         } else {
                             // If sign in fails
                             Log.d("SIGN IN: ", "Failure")
-                            outputString = Constants.OUTPUT_1
+                            Snackbar.make(v, Constants.OUTPUT_1, Snackbar.LENGTH_SHORT).show()
                         }
                     }
 
+                userView.setText("")
+                passwordView.setText("")
             }
-
-            /*if (outputString == Constants.OUTPUT_0) {
-                Log.d("LOGIN -> ", "LIST TEMAS")
-                val action = LoginDirections.actionLoginToMainActivity()
-                v.findNavController().navigate(action)
-            }*/
-
-            Snackbar.make(v, outputString, Snackbar.LENGTH_SHORT).show()
-
-            userView.setText("")
-            passwordView.setText("")
         }
 
-        /*btnRegister.setOnClickListener {
-
-        }*/
+        btnRegister.setOnClickListener {
+            val action = LoginDirections.actionLoginToRegister()
+            v.findNavController().navigate(action)
+        }
     }
 }

@@ -53,7 +53,6 @@ class ListTemas : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        //Log.d("-----------EN LIST TEMAS------------", viewModelLogin.usuarioLogueado.usuario)
         recTemas.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(context)
         recTemas.layoutManager = linearLayoutManager

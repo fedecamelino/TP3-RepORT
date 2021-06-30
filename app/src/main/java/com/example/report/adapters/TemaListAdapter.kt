@@ -19,9 +19,9 @@ class TemaListAdapter(
 ) : RecyclerView.Adapter<TemaListAdapter.TemaHolder>() {
 
     companion object {
-        private val INGRESO = "https://artes.unc.edu.ar/wp-content/blogs.dir/2/files/sites/2/Ingres2020_SliderWEB.png"
-        private val MATERIA = "https://destinonegocio.com/wp-content/uploads/2018/11/14-sistema-informatico.jpg"
-        private val ADMINISTRATIVO = "https://definicion.xyz/wp-content/uploads/2020/11/principios-y-elementos-de-la-administracion-700x438.jpg"
+        private val INGRESO = "https://ibb.co/48dDsHX"
+        private val MATERIA = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvADSD9QV9PHEjc8A8IyOrBkiMgZDy4iDgCMmlrUV8JvDg0sVj9aZbKifbojPnwcdn1ow&usqp=CAU"
+        private val ADMINISTRATIVO = "https://100funciones.com/wp-content/uploads/2019/01/funciones-de-la-administraci%C3%B3n-2.jpg"
         private val EXPERIENCIA = "https://i.pinimg.com/236x/f6/20/8a/f6208af20256c011ef2f790d085e97d5.jpg"
     }
 

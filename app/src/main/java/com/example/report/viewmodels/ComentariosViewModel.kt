@@ -13,22 +13,19 @@ import com.google.firebase.ktx.Firebase
 class ComentariosViewModel: ViewModel() {
     val db = Firebase.firestore
     var comentarios: MutableList<Comentario> = ArrayList<Comentario>()
-    var comentariosLive = MutableLiveData<MutableList<Comentario>>() //MutableLiveData<List<Comentario>>()
+    var comentariosLive = MutableLiveData<MutableList<Comentario>>()
 
     fun initComentarios(idTema : Int) {
 
         var comment : Comentario
         comentarios.clear()
 
-        Log.d("ENTRO AL INITCOMENT, IdTema = ", idTema.toString())
         db.collection("comentarios")
             .get()
             .addOnSuccessListener { snapshot ->
                 if (snapshot != null) {
-                    Log.d("ENTRO AL IF", "-----------")
                     for (comentario in snapshot) {
                         comment = comentario.toObject()
-                        Log.d("Comentario ----------> ", comment.description)
                         if (comment.idTheme == idTema) {
                             comentarios.add(comment)
                         }
@@ -46,7 +43,6 @@ class ComentariosViewModel: ViewModel() {
     }
 
     fun actualizarComentarios(nuevoComentario: Comentario) {
-        Log.d("SIZE Comentarios = ", comentarios.size.toString())
         comentarios.add(nuevoComentario)
         db.collection("comentarios").add(nuevoComentario)
         comentariosLive.value = comentarios
