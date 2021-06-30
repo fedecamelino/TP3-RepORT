@@ -84,11 +84,10 @@ class Login : Fragment() {
                             Log.d("SIGN IN: ", "Success")
                             val uid = auth.currentUser?.uid
                             Log.d("UID = ", uid.toString())
+
                             editor.putString("USERNAME", email)
+                            editor.putString("PASSWORD", password)
                             editor.apply()
-                            if (uid != null) {
-                                viewModel.setUser(uid)
-                            }
 
                             val action = LoginDirections.actionLoginToMainActivity()
                             v.findNavController().navigate(action)

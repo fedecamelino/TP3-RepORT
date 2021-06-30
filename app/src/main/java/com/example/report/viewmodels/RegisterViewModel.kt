@@ -38,7 +38,6 @@ class RegisterViewModel : ViewModel() {
             }
         }
 
-        Log.d("BANDERA FINAL = ", flagUserUnique.toString())
         return flagUserUnique
     }
 

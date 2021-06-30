@@ -55,9 +55,6 @@ class Details : Fragment() {
     override fun onStart() {
         super.onStart()
         viewModelDetails.temaActual = DetailsArgs.fromBundle(requireArguments()).tema
-
-        Log.d("ON START - Details - ", viewModelDetails.posicionTema.toString())
         viewModelComentarios.initComentarios(viewModelDetails.posicionTema)
-
     }
 }

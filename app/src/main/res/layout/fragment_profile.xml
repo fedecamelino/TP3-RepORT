@@ -1,27 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.Profile">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/emailProfile"
+        android:layout_width="187dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/emailTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloProfile" />
 
-        <TextView
-            android:id="@+id/txtBienvenido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="179dp"
-            android:layout_marginTop="302dp"
-            android:layout_marginEnd="174dp"
-            android:layout_marginBottom="410dp"
-            android:text="Bienvenido a Settings"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+    <TextView
+        android:id="@+id/passwordProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:text="@string/nueva_contrasenia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/passwordInputProfile1"
+        android:layout_width="322dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:hint="@string/passwordInputTxt1"
+        android:inputType="textPersonName"
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailProfile" />
+
+    <EditText
+        android:id="@+id/passwordInputActual"
+        android:layout_width="322dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="88dp"
+        android:ems="10"
+        android:hint="@string/contrasenia_actual"
+        android:inputType="textPersonName"
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailProfile" />
+
+    <EditText
+        android:id="@+id/passwordInputProfile2"
+        android:layout_width="318dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="@string/passwordInputTxt2"
+        android:inputType="textPersonName"
+        android:password="true"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCambio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputProfile1"
+        app:layout_constraintVertical_bias="0.428" />
+
+    <Button
+        android:id="@+id/buttonCambio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:text="@string/botton_cambio_contrasenia"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:text="@string/button_logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tituloProfile"
+        android:layout_width="179dp"
+        android:layout_height="39dp"
+        android:text="@string/perfil"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
+</androidx.constraintlayout.widget.ConstraintLayout>

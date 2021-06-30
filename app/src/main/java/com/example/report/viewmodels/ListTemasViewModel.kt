@@ -13,7 +13,7 @@ import com.google.firebase.ktx.Firebase
 class ListTemasViewModel : ViewModel() {
     val db = Firebase.firestore
     var temas: MutableList<Tema> = ArrayList<Tema>()
-    var temasLive = MutableLiveData<MutableList<Tema>>() //MutableLiveData<List<Tema>>()
+    var temasLive = MutableLiveData<MutableList<Tema>>()
     var flagInit : Boolean = true
 
     fun initTemas() {
@@ -38,7 +38,6 @@ class ListTemasViewModel : ViewModel() {
     }
 
     fun actualizarTemas(nuevoTema : Tema) {
-
         val indiceNuevoTema : Int = temas.size
         temas.add(indiceNuevoTema, nuevoTema)
         db.collection("temas").document(indiceNuevoTema.toString()).set(nuevoTema)

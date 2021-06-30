@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.report.R
 import com.example.report.entities.Usuario
-import com.example.report.viewmodels.LoginViewModel
 import com.example.report.viewmodels.RegisterViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -55,17 +54,17 @@ class Register : Fragment() {
     ): View? {
         v = inflater.inflate(R.layout.fragment_register, container, false)
 
-        tituloView = v.findViewById(R.id.tituloRegistroTxt)
-        nombreView = v.findViewById(R.id.nombreTxt)
+        tituloView = v.findViewById(R.id.tituloProfile)
+        nombreView = v.findViewById(R.id.nombreProfile)
         nombreInputView = v.findViewById(R.id.nombreInputTxt)
-        apellidoView = v.findViewById(R.id.apellidoTxt)
+        apellidoView = v.findViewById(R.id.apellidoProfile)
         apellidoInputView = v.findViewById(R.id.apellidoInputTxt)
-        emailView = v.findViewById(R.id.emailTxt)
+        emailView = v.findViewById(R.id.emailProfile)
         emailInputView = v.findViewById(R.id.emailInputTxt)
-        passwordView = v.findViewById(R.id.passwordTxt)
-        passwordInputView1 = v.findViewById(R.id.passwordInputTxt1)
-        passwordInputView2 = v.findViewById(R.id.passwordInputTxt2)
-        btnRegistrar = v.findViewById(R.id.buttonRegistro)
+        passwordView = v.findViewById(R.id.passwordProfile)
+        passwordInputView1 = v.findViewById(R.id.passwordInputProfile1)
+        passwordInputView2 = v.findViewById(R.id.passwordInputProfile2)
+        btnRegistrar = v.findViewById(R.id.buttonCambio)
 
         auth = Firebase.auth
         return v
@@ -78,8 +77,6 @@ class Register : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-        viewModelRegistro.getUsuarios()
 
         btnRegistrar.setOnClickListener {
 
@@ -99,7 +96,7 @@ class Register : Fragment() {
                                 val password1 = passwordInputView1.text.toString()
                                 val nombre = nombreInputView.text.toString()
                                 val apellido = apellidoInputView.text.toString()
-                                val usuario = Usuario(email, password1, nombre, apellido)
+                                val usuario = Usuario(email, nombre, apellido)
 
                                 auth.createUserWithEmailAndPassword(email, password1)
                                     .addOnCompleteListener(requireActivity()) { task ->
@@ -141,10 +138,6 @@ class Register : Fragment() {
                 val action = RegisterDirections.actionRegisterToLogin()
                 v.findNavController().navigate(action)
             }
-
         }
-
     }
-
-
 }

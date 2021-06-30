@@ -3,17 +3,15 @@ package com.example.report.entities
 import android.os.Parcel
 import android.os.Parcelable
 
-class Usuario (username: String, password: String, name: String, lastName: String) : Parcelable {
+class Usuario (username: String, name: String, lastName: String) : Parcelable {
     var username : String
-    var password : String
     var nombre: String
     var apellido: String
 
-    constructor() : this("", "", "", "")
+    constructor() : this("", "","")
 
     init {
         this.username = username
-        this.password = password
         this.nombre = name
         this.apellido = lastName
     }
@@ -22,13 +20,11 @@ class Usuario (username: String, password: String, name: String, lastName: Strin
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(username)
-        writeString(password)
         writeString(nombre)
         writeString(apellido)
     }
 
     constructor(source: Parcel) : this(
-        source.readString()!!,
         source.readString()!!,
         source.readString()!!,
         source.readString()!!

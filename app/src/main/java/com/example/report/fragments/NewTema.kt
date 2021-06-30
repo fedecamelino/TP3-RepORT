@@ -121,9 +121,7 @@ class NewTema : Fragment() {
                 Snackbar.make(v, Constants.OUTPUT_ERROR, Snackbar.LENGTH_SHORT).show()
             }
         }
-
     }
-
 }
 
 fun definirSpinner (spinner: Spinner, list : List<String>, context : Context)
